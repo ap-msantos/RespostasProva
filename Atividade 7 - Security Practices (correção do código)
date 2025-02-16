@@ -1,0 +1,13 @@
+from flask import Flask, request
+app = Flask(__name__)
+
+#usando método GET além do POST para que usuário forneça usuário e senha 
+@app.route('/login', methods=['GET','POST'])
+def login():
+        username = request.form.get['username']
+	password = request.form.get['password']
+	if username =='username_correto' and password == 'password_correto':
+	return "Acesso concedido"
+	return "Acesso negado"
+if __name__ == '__main__':
+    app.run(debug=True)
