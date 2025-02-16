@@ -1,0 +1,22 @@
+
+ import pandas as pd
+
+
+# Leitura do arquivo CSV
+df = pd.read_csv('estoque.csv')  
+
+# calculo do faturamento
+df['faturamento'] = df['quantidade'] * df['preco_unitario']
+
+# vê o faturamento por produto
+faturamento_por_produto = df.groupby('produto')['faturamento'].sum()
+
+# para encontrar o produto com maior e menor faturamento
+produto_maior_faturamento = faturamento_por_produto.idxmax()
+produto_menor_faturamento = faturamento_por_produto.idxmin()
+
+# mostra os resultados
+print("Faturamento total por produto:")
+print(faturamento_por_produto)
+print(f"O produto com maior faturamento é: {produto_maior_faturamento}")
+print(f"O produto com menor faturamento é: {produto_menor_faturamento}")
