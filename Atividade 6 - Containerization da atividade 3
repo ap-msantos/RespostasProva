@@ -1,0 +1,18 @@
+saudacao.py #criaçao de um arquivo saudação
+#dentro desse arquivo
+nome = input("Qual é seu nome?")
+saudacao = input("olá, seja bem vinda(o)!")
+print (saudacao ," ", nome)
+#salvar
+
+python3 saudacao.py # para rodar o código 
+
+soma.py #criação de um arquivo soma
+#dentro desse arquivo
+numero1 = int(input("Digite o primeiro número"))#solicita que digite um número
+numero2 = int(input("Digite o segundo número"))#solicita que digite outro numero
+soma = numero1 + numero2
+print ("A soma de", numero1, "+", numero2, "é", soma)
+#salvar
+
+python3 soma.py #para rodar o código
