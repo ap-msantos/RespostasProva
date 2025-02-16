@@ -1,0 +1,18 @@
+from flask import Flask, jsonify #importa as classes
+app = Flask('__saudacao__')# cria a instancia da classe Flask
+
+@app.route('/', methods=['GET']) #define a rota e o método
+def saudacao (): #define a funçao
+    return jsonify ('Ola Ana') #retorna a saudação personalizada
+app = Flask('__soma__') # cria a instancia da classe Flask
+
+@app.route('/', methods=['POST']) #define a rota e o metodo
+def soma(): #define a função
+
+  return jsonify(25+15) #retorna a soma
+
+
+if __name__ == '__main__':#verifica se o script esta sendo executado
+    app.run(debug=True) #inicia o script
+
+    
