@@ -1,0 +1,34 @@
+import asyncio
+import time
+
+# simula uma chamada de rede
+async def chamada_de_rede(id_chamada: int, duracao: int):
+    print(f"Iniciando chamada {id_chamada} com duração {duracao} segundos...")
+    await asyncio.sleep(duracao)  # Simula o tempo de resposta da rede
+    print(f"Chamada {id_chamada} concluída!")
+
+# executa várias chamadas simuladas de rede
+async def executar_chamadas():
+    # Lista de durações de chamadas de rede em segundos
+    duracoes = [5, 10, 15, 20, 30, ]
+    
+    # Armazenando a hora de início
+    inicio = time.time()
+    
+    # Cria tarefas assíncronas para todas as chamadas de rede
+    tarefas = [chamada_de_rede(i + 10, duracao) for i, duracao in enumerate(duracoes)]
+    
+    # Espera a execução de todas as tarefas
+    await asyncio.gather(*tarefas)
+    
+    # Calculando o tempo total de execução
+    tempo_total = time.time() - inicio
+    print(f"Tempo total de execução: {tempo_total:.2f} segundos")
+
+# Função para rodar o asyncio
+def main():
+    asyncio.run(executar_chamadas())
+
+if __name__ == "__main__":
+    main()
+
